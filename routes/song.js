@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var account_dal = require('../dal/account_dal');
+var song_dal = require('../dal/song_dal');
 
 router.get('/all',function(req,res,next){
-    account_dal.getAll(function(err,result){
+    song_dal.getAll(function(err,result){
         if(err)
         {
             console.log(err);
@@ -12,25 +12,47 @@ router.get('/all',function(req,res,next){
         else
         {
             // console.log(result);
-            res.render('account/account_view_all', {accounts: result});
+            res.render('song/song_view_all', {songs: result});
         }
     })
 });
 
 router.get('/add', function(req,res) {
-    res.render('account/account_add');
+    res.render('song/song_add');
 });
 
 router.get('/insert', function(req, res){
-    account_dal.insert(req.query, function(err, result){
+    song_dal.insert(req.query, function(err, result){
         if(err){
             console.log(err);
             res.send(err);
         }
         else{
-            res.redirect(302, '/account/all');
+            res.redirect(302, '/song/all');
         }
     });
 });
 
+
+router.get('/edit', function(req, res){
+    song_dal.getinfo(req.query.song_id, function(err, result) {
+        if(err) { res.send(err); }
+        else {
+            res.render('song/songUpdate',
+                {song: result[0][0], song_result: result[1]}
+            );
+        }
+    });
+});
+
+router.get('/update', function(req, res) {
+    song_dal.update(req.query, function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/song/all');
+        }
+    });
+});
 module.exports = router;

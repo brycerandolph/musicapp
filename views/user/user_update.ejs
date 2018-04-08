@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User - Edit</title>
+</head>
+<body>
+<h1>Edit Users</h1>
+<form action="/user/update" method="get">
+
+    <input type="hidden"
+           id="user_id"
+           name="user_id"
+           value="<%= users.user_id %>"
+    />
+    Username: <input
+            id="user_name"
+            name="user_name"
+            type="text"
+            value="<%= users.user_name%>"
+    />
+    </br>
+    Password: <input
+            id="password"
+            name="password"
+            type="text"
+            value="<%= users.password%>"
+    />
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+<br/><a href="/user/all">Return to All users</a>
+</body>
+
+</html>
