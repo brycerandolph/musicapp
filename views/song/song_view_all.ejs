@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>All Songs</h1>
-<a href="/song/add">Add New song</a>
+<a href="/song/add">Add New Song TODO ADD ORDERBY FEATURE to the different table labels</a>
 <br/>
 <table border="1">
     <tr>
@@ -20,14 +20,14 @@
     </tr>
     <% for(var i = 0; i <songs.length;i++){%>
     <tr>
-        <td><%= songs[i].song_id %></td>
-        <td><%= songs[i].title %></td>
-        <td align = 'right'><%= songs[i].length%></td>
-        <td><%= songs[i].artist %></td>
-        <td><%= songs[i].album %></td>
+        <td align = 'center'><%= songs[i].song_id %></td>
+        <td align = 'center'><%= songs[i].title %></td>
+        <td align = 'center'><%= songs[i].length%></td>
+        <td align = 'center'><%= songs[i].artist %></td>
+        <td align = 'center'><%= songs[i].album %></td>
 
-        <td align = 'right'><%= songs[i].track_number %></td>
-        <td align = 'right'>
+        <td align = 'center'><%= songs[i].track_number %></td>
+        <td align = 'center'>
             <a href='/song/edit/?song_id=<%= songs[i].song_id%>'>
                 Edit
             </a>
@@ -38,5 +38,4 @@
 <br/><a href="/">Return to Homepage</a>
 <link rel='stylesheet' href='/stylesheets/style.css' />
 </body>
-
 </html>

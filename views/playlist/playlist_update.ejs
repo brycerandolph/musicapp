@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +20,22 @@
             value="<%= playlists.name%>"
     />
     </br><br />
-   
+
+    <span style="font-weight:bold"> Songs </span> <br /> <br />
+    <% for(var i=0; playlist_result.length > i; i++ ) {
+        var checked = "";
+
+        if(playlist_result[i].playlist_id != null) {
+            checked = "checked";
+        }
+    %>
+    <input type="checkbox" name="song_id" <%= checked %> value="<%= playlist_result[i].song_id %>"> <%= playlist_result[i].title + ' <> ' + playlist_result[i].artist + ' <> ' + playlist_result[i].album %>
+    <br />
+    <% } %>
+
+    <br />
     <input type="submit" />
+
 
 </form>
 <br/><br/><a href="/playlist/all">Return to All Playlists</a>

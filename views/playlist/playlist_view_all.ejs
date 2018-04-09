@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>All Playlists</h1>
-<a href="/playlist/add">Add New playlist</a>
+<a href="/playlist/add">Add New Playlist</a>
 <br/>
 <table border="1">
     <tr>
@@ -16,9 +16,9 @@
     </tr>
     <% for(var i = 0; i <playlists.length;i++){%>
     <tr>
-        <td><%= playlists[i].playlist_id %></td>
-        <td><%= playlists[i].name %></td>
-        <td align = 'right'>
+        <td align = 'center'><%= playlists[i].playlist_id %></td>
+        <td ><%= playlists[i].name %></td>
+        <td align = 'center'>
             <a href='/playlist/edit/?playlist_id=<%= playlists[i].playlist_id%>'>
                 Edit
             </a>

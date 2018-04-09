@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var playlist_dal = require('../dal/playlist_dal');
+var song_dal = require('../dal/song_dal');
 
 router.get('/all',function(req,res,next){
     playlist_dal.getAll(function(err,result){
@@ -18,7 +19,16 @@ router.get('/all',function(req,res,next){
 });
 
 router.get('/add', function(req,res) {
-    res.render('playlist/playlist_add');
+    song_dal.getAll(function (err,result){
+        if(err)
+        {
+            res.send(err);
+        }
+        else
+        {
+            res.render('playlist/playlist_add', {playlist_result: result});
+        }
+    });
 });
 
 router.get('/insert', function(req, res){
