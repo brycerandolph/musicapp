@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song - Edit</title>
+</head>
+<h1>Edit Song</h1>
+<body>
+
+<form action="/song/update" method="get">
+
+    <input type="hidden"
+           id="song_id"
+           name="song_id"
+           value="<%= songs.song_id %>"
+    />
+    <span style="font-weight:bold">Title: </span></br><input
+            id="title"
+            name="title"
+            type="text"
+            value="<%= songs.title%>"
+    />
+    </br><br />
+    <span style="font-weight:bold">Artist:</span> </br><input
+            id="artist"
+            name="artist"
+            type="text"
+            value="<%= songs.artist%>"
+    />
+    </br><br />
+    <span style="font-weight:bold">Album:</span> </br><input
+            id="album"
+            name="album"
+            type="text"
+            value="<%= songs.album%>"
+    />
+    <br /><br />
+    <span style="font-weight:bold">Length: </span></br><input
+            id="length"
+            name="length"
+            type="text"
+            value="<%= songs.length%>"
+    />
+    <br /><br />
+    <span style="font-weight:bold">Track Number: </span></br><input
+            id="track_number"
+            name="track_number"
+            type="text"
+            value="<%= songs.track_number%>"
+    />
+    <br />
+
+    </br>
+    <input type="submit" />
+
+</form>
+<br/><br/><a href="/song/all">Return to All songs</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

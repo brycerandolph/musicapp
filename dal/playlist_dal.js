@@ -9,7 +9,7 @@ exports.getAll = function(callback){
     });
 };
 exports.insert = function(params, callback){
-    var query = 'INSERT INTO playlist (name) VALUES ?';
+    var query = 'INSERT INTO playlist (name) VALUES (?)';
     var queryData = [params.name];
     connection.query(query, queryData, function(err, result){
         callback(err, result);

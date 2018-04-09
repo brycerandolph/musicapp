@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Song</title>
+</head>
+<body>
+<h1>Add New Song</h1>
+<form action="/song/insert" method="get">
+
+   <span style="font-weight:bold"> Title:  </span><br /><input name="title" type="text" />
+    <br /> <br />
+   <span style="font-weight:bold"> Artist: </span><br /> <input name="artist" type="text" />
+    <br /> <br />
+   <span style="font-weight:bold"> Album:  </span><br /><input name="album" type="text" />
+    <br /> <br />
+    <span style="font-weight:bold">Length: </span><br /> <input name="length" type="text" />
+    <br /> <br />
+        <span style="font-weight:bold">  Track Number: </span> <br /><input name="track_number" type="text" />
+    <br /> <br />
+    <input type="submit" />
+
+</form>
+<br/><br/><a href="/song/all">Return to All songs</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+</html>

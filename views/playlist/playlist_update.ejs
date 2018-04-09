@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist - Edit</title>
+</head>
+<h1>Edit Playlist</h1>
+<body>
+
+<form action="/playlist/update" method="get">
+
+    <input type="hidden"
+           id="playlist_id"
+           name="playlist_id"
+           value="<%= playlists.playlist_id %>"
+    />
+    <span style="font-weight:bold">Name: </span></br><input
+            id="name"
+            name="name"
+            type="text"
+            value="<%= playlists.name%>"
+    />
+    </br><br />
+   
+    <input type="submit" />
+
+</form>
+<br/><br/><a href="/playlist/all">Return to All Playlists</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

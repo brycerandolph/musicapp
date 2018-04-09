@@ -38,8 +38,8 @@ router.get('/edit', function(req, res){
     song_dal.getinfo(req.query.song_id, function(err, result) {
         if(err) { res.send(err); }
         else {
-            res.render('song/songUpdate',
-                {song: result[0][0], song_result: result[1]}
+            res.render('song/song_update',
+                {songs: result[0][0], song_result: result[1]}
             );
         }
     });

@@ -7,24 +7,24 @@
   <body>
     <h1><%= title %></h1>
     <p>A Project by Bryce Randolph</p>
-<br/><br/>
-    Please Select an Account <br />
-    <form action="/user/hub" method="get">
-        <select name= 'user_name'>
-        <% for(var i=0; user_result.length > i; i++ ) {
-          var selected = "";
-          if(user_result[i].user_name != null)
-          {
-            selected = "selected";
+    <br/><br/>
 
-          }%>
-      <option  <%= selected %> value="<%= user_result[i].user_name %>"> <%= user_result[i].user_name %>
+    <p><span style="font-weight:bold">Users</span></p>
 
-          <% } %>
-    </select>
+    <a href="/user/all">View All Users</a>
+    <br/><a href="/user/add">Add User to Database</a>
+    <br/><br/>
+    <p><span style="font-weight:bold">Songs</span></p>
 
-      <input type="submit" />
-    </form>
+    <a href="/song/all">View All Songs</a>
+    <br/><a href="/song/add">Add Song to Database</a>
+    <br/><br/>
+    <p><span style="font-weight:bold">Playlists</span></p>
+    <a href="/playlist/all">View All Playlists</a>
+    <br/><a href="/playlist/add">Add Playlist to Database</a>
+
+
+
 
     <!--<h1> Please create an account</h1>
     <form action="/user/insert" method="get">
@@ -38,4 +38,5 @@
 
     </form>-->
   </body>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
 </html>

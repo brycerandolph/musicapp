@@ -12,25 +12,25 @@
            name="user_id"
            value="<%= users.user_id %>"
     />
-    Username: <input
+    <span style="font-weight:bold">Username:</span><br /><input
             id="user_name"
             name="user_name"
             type="text"
             value="<%= users.user_name%>"
     />
-    </br>
-    Password: <input
+    </br><br />
+    <span style="font-weight:bold">Password:</span><br /><input
             id="password"
             name="password"
             type="text"
             value="<%= users.password%>"
     />
-    <br />
-    <br />
+    <br /><br />
     <input type="submit" />
 
 </form>
-<br/><a href="/user/all">Return to All users</a>
+<br/><br/><a href="/user/all">Return to All users</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
 </body>
 
 </html>

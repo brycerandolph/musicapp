@@ -9,15 +9,15 @@ exports.getAll = function(callback){
     });
 };
 exports.insert = function(params, callback){
-    var query = 'INSERT INTO song (title, artist, album, explicit, length, track_number) VALUES (?, ?, ?, ?, ?, ?)';
-    var queryData = [params.title, params.artist, params.album, params.explicit, params.length, params.track_number];
+    var query = 'INSERT INTO song (title, artist, album, length, track_number) VALUES (?, ?, ?, ?, ?)';
+    var queryData = [params.title, params.artist, params.album, params.length, params.track_number];
     connection.query(query, queryData, function(err, result){
         callback(err, result);
     });
 };
 exports.insert = function(params, callback){
-    var query = 'INSERT INTO song (title, artist, album, explicit, length, track_number) VALUES (?, ?, ?, ?, ?, ?)';
-    var queryData = [params.title, params.artist, params.album, params.explicit, params.length, params.track_number];
+    var query = 'INSERT INTO song (title, artist, album, length, track_number) VALUES (?, ?, ?, ?, ?)';
+    var queryData = [params.title, params.artist, params.album, params.length, params.track_number];
     connection.query(query, queryData, function(err, result){
         callback(err, result);
     });
@@ -31,8 +31,8 @@ exports.getinfo = function(song_id, callback) {
     });
 };
 exports.update = function(params, callback) {
-    var query = 'UPDATE song SET title = ?, artist = ?, album = ?, explicit = ?, length = ?, track_number = ? WHERE song_id = ?';
-    var queryData = [params.title, params.artist, params.album, params.explicit, params.length, params.track_number, params.song_id];
+    var query = 'UPDATE song SET title = ?, artist = ?, album = ?, length = ?, track_number = ? WHERE song_id = ?';
+    var queryData = [params.title, params.artist, params.album, params.length, params.track_number, params.song_id];
     connection.query(query, queryData, function(err, result)
     {
         callback(err, result);

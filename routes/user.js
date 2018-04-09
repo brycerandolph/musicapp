@@ -28,7 +28,7 @@ router.get('/insert', function(req, res){
             res.send(err);
         }
         else{
-            res.redirect(302, '/');
+            res.redirect(302, '/user/all');
         }
     });
 });
