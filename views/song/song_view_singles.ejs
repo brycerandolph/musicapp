@@ -5,15 +5,8 @@
 
 </head>
 <body>
-<h1>All Songs</h1>
-<a href="/song/singles">View Singles Only</a><br/><br/>
-Sort by (
-<a href="/song/titlesort">Title</a>
-,
-<a href="/song/artistsort">Artist</a>
-,
-<a href="/song/albumsort">Album</a>
-)
+<h1>All Singles</h1>
+
 <br/>
 <table border="1">
     <tr>
@@ -21,8 +14,6 @@ Sort by (
         <th>Title</th>
         <th>Length</th>
         <th>Artist</th>
-        <th>Album</th>
-        <th>Track Number</th>
         <th>Actions</th>
     </tr>
     <% for(var i = 0; i <songs.length;i++){%>
@@ -31,9 +22,6 @@ Sort by (
         <td ><%= songs[i].title %></td>
         <td align = 'center'><%= songs[i].length%></td>
         <td align = 'center'><%= songs[i].artist %></td>
-        <td align = 'center'><%= songs[i].album %></td>
-
-        <td align = 'center'><%= songs[i].track_number %></td>
         <td align = 'center'>
             <a href='/song/edit/?song_id=<%= songs[i].song_id%>'>
                 Edit

@@ -52,16 +52,4 @@ router.get('/update', function(req, res) {
         }
     });
 });
-
-router.get('/hub', function(req, res){
-    user_dal.getinfo(req.query.user_id, function(err, result) {
-        if(err) { res.send(err); }
-        else {
-            res.render('user/user_hub',
-                {users: result[0][0], user_result: result[1]}
-            );
-        }
-    });
-});
-
 module.exports = router;

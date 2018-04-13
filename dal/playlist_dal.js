@@ -3,7 +3,16 @@ var db = require('./db_connection.js');
 
 var connection = mysql.createConnection(db.config);
 exports.getAll = function(callback){
-    var query = 'SELECT * FROM playlist;';
+    var query = 'SELECT * FROM playlist';
+    connection.query(query, function(err, result){
+        callback(err, result);
+    });
+};
+exports.alt = function(callback){
+    var query = 'SELECT * FROM playlist join playlist_song ON playlist.playlist_id = playlist_song.playlist_id\n' +
+        '                                  join song ON playlist_song.song_id = song.song_id\n' +
+        '                                  ORDER BY name\n' +
+        '\n';
     connection.query(query, function(err, result){
         callback(err, result);
     });

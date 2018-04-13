@@ -17,6 +17,20 @@ router.get('/all',function(req,res,next){
         }
     })
 });
+router.get('/alt',function(req,res,next){
+    playlist_dal.alt(function(err,result){
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            // console.log(result);
+            res.render('playlist/playlist_view_alt', {playlists: result});
+        }
+    })
+});
 
 router.get('/add', function(req,res) {
     song_dal.getAll(function (err,result){

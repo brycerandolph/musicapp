@@ -5,19 +5,31 @@
 
 </head>
 <body>
-<h1>All Playlists</h1>
-<br/><a href="/playlist/alt">Expanded View</a>
+<h1>Playlists</h1>
+
 <br/>
 <table border="1">
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Title</th>
+        <th>Length</th>
+        <th>Artist</th>
+        <th>Album</th>
+
         <th>Actions</th>
+
     </tr>
     <% for(var i = 0; i <playlists.length;i++){%>
     <tr>
         <td align = 'center'><%= playlists[i].playlist_id %></td>
-        <td ><%= playlists[i].name %></td>
+        <td align = 'center'><%= playlists[i].name %></td>
+        <td align = 'center'><%= playlists[i].title %></td>
+        <td align = 'center'><%= playlists[i].length%></td>
+        <td align = 'center'><%= playlists[i].artist %></td>
+        <td align = 'center'><%= playlists[i].album %></td>
+
+
         <td align = 'center'>
             <a href='/playlist/edit/?playlist_id=<%= playlists[i].playlist_id%>'>
                 Edit

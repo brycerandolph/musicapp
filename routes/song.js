@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var song_dal = require('../dal/song_dal');
 
+
 router.get('/all',function(req,res,next){
     song_dal.getAll(function(err,result){
         if(err)
@@ -16,6 +17,67 @@ router.get('/all',function(req,res,next){
         }
     })
 });
+router.get('/singles',function(req,res,next){
+    song_dal.getsingles(function(err,result){
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            // console.log(result);
+            res.render('song/song_view_singles', {songs: result});
+        }
+    })
+});
+
+router.get('/titlesort',function(req,res,next){
+    song_dal.sort_title(function(err,result){
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            // console.log(result);
+            res.render('song/song_view_all_title', {songs: result});
+        }
+    })
+});
+
+router.get('/artistsort',function(req,res,next){
+    song_dal.sort_artist(function(err,result){
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            // console.log(result);
+            res.render('song/song_view_all_artist', {songs: result});
+        }
+    })
+});
+
+router.get('/albumsort',function(req,res,next){
+    song_dal.sort_album(function(err,result){
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            // console.log(result);
+            res.render('song/song_view_all_album', {songs: result});
+        }
+    })
+});
+
+
 
 router.get('/add', function(req,res) {
     res.render('song/song_add');
@@ -55,4 +117,5 @@ router.get('/update', function(req, res) {
         }
     });
 });
+
 module.exports = router;
