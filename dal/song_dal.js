@@ -3,7 +3,8 @@ var db = require('./db_connection.js');
 
 var connection = mysql.createConnection(db.config);
 exports.getAll = function(callback){
-    var query = 'SELECT * FROM song';
+    var query = 'SELECT * FROM song';// CROSS JOIN user';
+    //var query = 'SELECT * FROM song ';
     connection.query(query, function(err, result){
         callback(err, result);
     });

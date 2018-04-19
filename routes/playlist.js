@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var playlist_dal = require('../dal/playlist_dal');
 var song_dal = require('../dal/song_dal');
-
+var user_dal = require('../dal/user_dal');
 router.get('/all',function(req,res,next){
     playlist_dal.getAll(function(err,result){
         if(err)
@@ -34,6 +34,7 @@ router.get('/alt',function(req,res,next){
 
 router.get('/add', function(req,res) {
     song_dal.getAll(function (err,result){
+     //user_dal.getinfo (function (err,result){
         if(err)
         {
             res.send(err);

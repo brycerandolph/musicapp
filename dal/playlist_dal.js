@@ -2,14 +2,20 @@ var mysql = require('mysql');
 var db = require('./db_connection.js');
 
 var connection = mysql.createConnection(db.config);
-exports.getAll = function(callback){
-    var query = 'SELECT * FROM playlist';
+/*exports.getAll = function(callback){
+    var query = 'SELECT * FROM playlist;';
+    connection.query(query, function(err, result){
+        callback(err, result);
+    });
+};*/
+exports.getAll = function(callback){//broken currently
+    var query = 'SELECT * FROM playlist LEFT JOIN user ON playlist.user_name = user.user_name';
     connection.query(query, function(err, result){
         callback(err, result);
     });
 };
 exports.alt = function(callback){
-    var query = 'SELECT * FROM playlist join playlist_song ON playlist.playlist_id = playlist_song.playlist_id\n' +
+    var query = 'SELECT * FROM playlist JOIN playlist_song ON playlist.playlist_id = playlist_song.playlist_id\n' +
         '                                  join song ON playlist_song.song_id = song.song_id\n' +
         '                                  ORDER BY name\n' +
         '\n';
@@ -18,8 +24,9 @@ exports.alt = function(callback){
     });
 };
 exports.insert = function(params, callback){
-    var query = 'INSERT INTO playlist (name) VALUES (?)';
-    var queryData = [params.name];
+    //var query = 'INSERT INTO playlist (name) VALUES (?)';
+    var query = 'INSERT INTO playlist(name, user_name) VALUES (?,?)';
+    var queryData = [params.name, params.user_name];
     connection.query(query, queryData, function(err, result){
             if(err || params.song_id === undefined) {
                 console.log(err);
@@ -108,8 +115,8 @@ var songPlaylistUpdate = function(playlist_id, playlistIdArray, callback){
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE playlist SET name = ? WHERE playlist_id = ?';
-    var queryData = [params.name, params.playlist_id];
+    var query = 'UPDATE playlist SET name = ?, user_name= ? WHERE playlist_id = ?';
+    var queryData = [params.name, params.user_name, params.playlist_id];
     connection.query(query, queryData, function(err, result){
     songPlaylistUpdate(params.playlist_id, params.song_id, function (err, result) {
 

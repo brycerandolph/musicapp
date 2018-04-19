@@ -12,17 +12,19 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Actions</th>
+        <th>Username</th>
+       <!-- <th>Actions</th>-->
     </tr>
     <% for(var i = 0; i <playlists.length;i++){%>
     <tr>
         <td align = 'center'><%= playlists[i].playlist_id %></td>
         <td ><%= playlists[i].name %></td>
-        <td align = 'center'>
-            <a href='/playlist/edit/?playlist_id=<%= playlists[i].playlist_id%>'>
+        <td align = 'center'><%= playlists[i].user_name %></td>
+        <!--<td align = 'center'>
+            <a href='/playlist/edit/?playlist_id= playlists[i].playlist_id'>
                 Edit
-            </a>
-        </td>
+
+        </td></a>-->
     </tr>
     <% } %>
 </table>

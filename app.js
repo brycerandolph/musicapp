@@ -28,6 +28,7 @@ app.use('/users', users);
 
 app.use('/user', user);
 app.use('/song', song);
+app.use('/song', user);
 app.use('/playlist', playlist);
 
 // catch 404 and forward to error handler

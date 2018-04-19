@@ -13,6 +13,23 @@
            name="playlist_id"
            value="<%= playlists.playlist_id %>"
     />
+
+    <span style="font-weight:bold">User</span> <br />
+
+    <select name= 'user_name'>
+        <% for(var i=0; playlist_result.length > i; i++ ) {
+            var selected = "";
+            if(playlist_result[i].user_name != null)
+            {
+                selected = "selected";
+
+            }%>
+        <option  <%= selected %> value="<%= playlist_result[i].user_name%>"> <%= playlist_result[i].user_name %>
+
+            <% } %>
+    </select>
+    <br /><br />
+
     <span style="font-weight:bold">Name: </span></br><input
             id="name"
             name="name"

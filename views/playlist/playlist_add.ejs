@@ -7,13 +7,23 @@
 <h1>Add New Playlist</h1>
 <form action="/playlist/insert" method="get">
 
-   <span style="font-weight:bold"> Name:  </span><br /><input name="name" type="text" />
+    <span style="font-weight:bold"> User </span><br />
+
+    <select name= 'user_name'>
+        <% for(var i=0;  playlist_result.length > i; i++ ) {
+        %>
+        <option value="<%= playlist_result[i].user_name%>"> <%= playlist_result[i].user_name%>
+
+            <% } %>
+    </select>
+    <br /><br />
+    <span style="font-weight:bold"> Name:  </span><br /><input name="name" type="text" />
     <br />
     <br />
     <span style="font-weight:bold"> Songs </span>
     <br /> <br />
-    <% for(var i=0; playlist_result.length > i; i++ ) { %>
-    <input type="checkbox" name="song_id" value="<%= playlist_result[i].song_id %>"> <%= playlist_result[i].title + ' <> ' + playlist_result[i].artist + ' <> ' + playlist_result[i].album%>
+    <% for(var j=0; playlist_result.length > j; j++ ) { %>
+    <input type="checkbox" name="song_id" value="<%= playlist_result[j].song_id %>"> <%= playlist_result[j].title + ' <> ' + playlist_result[j].artist + ' <> ' + playlist_result[j].album%>
     <br />
     <% } %>
 
