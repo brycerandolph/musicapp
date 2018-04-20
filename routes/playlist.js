@@ -33,15 +33,16 @@ router.get('/alt',function(req,res,next){
 });
 
 router.get('/add', function(req,res) {
-    song_dal.getAll(function (err,result){
-     //user_dal.getinfo (function (err,result){
+    playlist_dal.stuff(function (err,result){
         if(err)
         {
             res.send(err);
         }
         else
         {
-            res.render('playlist/playlist_add', {playlist_result: result});
+            res.render('playlist/playlist_add',
+                //{playlist_result: result});
+                {playlists: result[0], playlist_result: result[1]});
         }
     });
 });

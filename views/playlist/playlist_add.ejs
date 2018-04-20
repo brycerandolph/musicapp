@@ -10,9 +10,9 @@
     <span style="font-weight:bold"> User </span><br />
 
     <select name= 'user_name'>
-        <% for(var i=0;  playlist_result.length > i; i++ ) {
+        <% for(var i=0;  playlists.length > i; i++ ) {
         %>
-        <option value="<%= playlist_result[i].user_name%>"> <%= playlist_result[i].user_name%>
+        <option value="<%= playlists[i].user_name%>"> <%= playlists[i].user_name%>
 
             <% } %>
     </select>

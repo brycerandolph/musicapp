@@ -14,6 +14,12 @@ exports.getAll = function(callback){//broken currently
         callback(err, result);
     });
 };
+exports.stuff = function(callback){//broken currently
+    var query = 'CALL playlist_stuff()';
+    connection.query(query, function(err, result){
+        callback(err, result);
+    });
+};
 exports.alt = function(callback){
     var query = 'SELECT * FROM playlist JOIN playlist_song ON playlist.playlist_id = playlist_song.playlist_id\n' +
         '                                  join song ON playlist_song.song_id = song.song_id\n' +
