@@ -117,5 +117,14 @@ router.get('/update', function(req, res) {
         }
     });
 });
-
+router.get('/delete', function(req, res) {
+    song_dal.delete(req.query.song_id, function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/song/all');
+        }
+    });
+});
 module.exports = router;

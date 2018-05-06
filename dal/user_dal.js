@@ -32,3 +32,12 @@ exports.update = function(params, callback) {
     });
 
 };
+exports.delete = function(user_id, callback) {
+    var query = 'DELETE FROM user WHERE user_id = ?';
+    var queryData = [user_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+
+    });
+};

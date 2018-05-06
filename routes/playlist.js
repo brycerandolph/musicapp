@@ -61,11 +61,14 @@ router.get('/insert', function(req, res){
 
 
 router.get('/edit', function(req, res){
-    playlist_dal.getinfo(req.query.playlist_id, function(err, result) {
-        if(err) { res.send(err); }
+    playlist_dal.edit(req.query.playlist_id, function(err, result) {
+        if(err)
+        {
+            res.send(err);
+        }
         else {
             res.render('playlist/playlist_update',
-                {playlists: result[0][0], playlist_result: result[1]}
+                {users: result[0], songs: result[1]}
             );
         }
     });
@@ -73,6 +76,16 @@ router.get('/edit', function(req, res){
 
 router.get('/update', function(req, res) {
     playlist_dal.update(req.query, function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/playlist/all');
+        }
+    });
+});
+router.get('/delete', function(req, res) {
+    playlist_dal.delete(req.query.playlist_id, function(err, result){
         if(err) {
             res.send(err);
         }

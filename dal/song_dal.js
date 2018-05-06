@@ -64,3 +64,12 @@ exports.update = function(params, callback) {
     });
 
 };
+exports.delete = function(song_id, callback) {
+    var query = 'DELETE FROM song WHERE song_id = ?';
+    var queryData = [song_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+
+    });
+};

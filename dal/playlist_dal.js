@@ -22,7 +22,7 @@ exports.stuff = function(callback){//broken currently
 };
 exports.alt = function(callback){
     var query = 'SELECT * FROM playlist JOIN playlist_song ON playlist.playlist_id = playlist_song.playlist_id\n' +
-        '                                  join song ON playlist_song.song_id = song.song_id\n' +
+        '                                  JOIN song ON playlist_song.song_id = song.song_id\n' +
         '                                  ORDER BY name\n' +
         '\n';
     connection.query(query, function(err, result){
@@ -120,6 +120,16 @@ var songPlaylistUpdate = function(playlist_id, playlistIdArray, callback){
     });
 };
 
+exports.edit = function(playlist_id, callback){
+    var query = 'CALL playlist_edit(?)';
+    var queryData = [playlist_id];
+    connection.query(query, queryData, function (err, result) {
+            callback(err, result);
+
+    });
+    };
+
+
 exports.update = function(params, callback) {
     var query = 'UPDATE playlist SET name = ?, user_name= ? WHERE playlist_id = ?';
     var queryData = [params.name, params.user_name, params.playlist_id];
@@ -129,4 +139,13 @@ exports.update = function(params, callback) {
         callback(err, result);
          });
     });
+};
+exports.delete = function(playlist_id, callback) {
+    var query = 'DELETE FROM playlist WHERE playlist_id = ?';
+    var queryData = [playlist_id];
+
+    connection.query(query, queryData, function (err, result) {
+        callback(err, result);
+    });
+
 };

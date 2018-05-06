@@ -52,4 +52,14 @@ router.get('/update', function(req, res) {
         }
     });
 });
+router.get('/delete', function(req, res) {
+    user_dal.delete(req.query.user_id, function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/user/all');
+        }
+    });
+});
 module.exports = router;
