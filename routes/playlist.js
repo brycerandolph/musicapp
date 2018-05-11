@@ -68,7 +68,7 @@ router.get('/edit', function(req, res){
         }
         else {
             res.render('playlist/playlist_update',
-                {users: result[0], songs: result[1]}
+                {songs: result[0], playlists: result[1][0]}
             );
         }
     });

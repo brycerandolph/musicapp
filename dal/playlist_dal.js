@@ -131,8 +131,8 @@ exports.edit = function(playlist_id, callback){
 
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE playlist SET name = ?, user_name= ? WHERE playlist_id = ?';
-    var queryData = [params.name, params.user_name, params.playlist_id];
+    var query = 'UPDATE playlist SET name = ? WHERE playlist_id = ?';
+    var queryData = [params.name, params.playlist_id];
     connection.query(query, queryData, function(err, result){
     songPlaylistUpdate(params.playlist_id, params.song_id, function (err, result) {
 

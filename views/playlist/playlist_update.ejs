@@ -11,30 +11,13 @@
     <input type="hidden"
            id="playlist_id"
            name="playlist_id"
-           value="<%= songs.playlist_id %>"
+           value="<%= playlists.playlist_id %>"
     />
-
-    <span style="font-weight:bold">User</span> <br />
-
-    <select name= 'user_name'>
-        <% for(var i=0; users.length > i; i++ ) {
-            var selected = "";
-            if(users[i].user_name != null)
-            {
-                selected = "selected";
-
-            }%>
-        <option  <%= selected %> value="<%= users[i].user_name%>"> <%= users[i].user_name %>
-
-            <% } %>
-    </select>
-    <br /><br />
-
     <span style="font-weight:bold">Playlist Name: </span></br><input
             id="name"
             name="name"
             type="text"
-            value="<%= songs.playlist_name%>"
+            value="<%= playlists.name%>"
     />
     </br><br />
 
