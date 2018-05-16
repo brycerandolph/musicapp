@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Query that compares Outer to Inner Query</title>
+
+</head>
+<body>
+<h1>Query that compares Outer to Inner Query</h1>
+This query returns playlists that are empty.
+<br/><br/><br/>
+<span style="font-weight:bold">MYSQL:</span><br/>
+SELECT name
+FROM playlist p
+WHERE 1 > (SELECT COUNT(song_id) FROM playlist_song WHERE playlist_id = p.playlist_id);<br/><br/>
+<table border="1">
+    <tr>
+        <th>Playlist Name</th>
+    </tr>
+    <% for(var i = 0; i <query.length;i++){%>
+    <tr>
+        <td ><%= query[i].name %></td>
+    </tr>
+    <% } %>
+</table>
+<br/><a href="/">Return to Homepage</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Query using JOIN, GROUP BY, Having, and COUNT</title>
+
+</head>
+<body>
+<h1>Query using JOIN, GROUP BY, Having, and COUNT</h1>
+This query returns users that have created more than one playlist.
+<br/><br/><br/>
+<span style="font-weight:bold">MYSQL:</span><br/>
+SELECT u.user_name FROM user u
+JOIN playlist p ON p.user_name = u.user_name<br/>
+GROUP BY u.user_name
+HAVING 1 < COUNT(p.user_name);<br/><br/>
+<table border="1">
+    <tr>
+        <th>User_Name</th>
+    </tr>
+    <% for(var i = 0; i <query.length;i++){%>
+    <tr>
+        <td ><%= query[i].user_name %></td>
+    </tr>
+    <% } %>
+</table>
+<br/><a href="/">Return to Homepage</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

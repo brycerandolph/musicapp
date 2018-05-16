@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Subquery in a JOIN</title>
+
+</head>
+<body>
+<h1>Subquery in a JOIN</h1>
+This query returns Playlist Names and the User_ID belonging to the playlist owner.
+<br/><br/><br/>
+<span style="font-weight:bold">MYSQL:</span><br/>
+SELECT p.name, u.user_id
+FROM  playlist p
+JOIN
+(
+<br/>SELECT *
+FROM user u
+) AS u
+ON p.user_name = u.user_name
+GROUP BY p.name;<br/><br/>
+<table border="1">
+    <tr>
+        <th>Playlist Name</th>
+        <th>User_ID</th>
+    </tr>
+    <% for(var i = 0; i <query.length;i++){%>
+    <tr>
+        <td ><%= query[i].name %></td>
+        <td ><%= query[i].user_id %></td>
+    </tr>
+    <% } %>
+</table>
+<br/><a href="/">Return to Homepage</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

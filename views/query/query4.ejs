@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Subquery with NOT EXISTS</title>
+
+</head>
+<body>
+<h1>Subquery with NOT EXISTS</h1>
+This query returns songs that are not associated with a playlist.
+<br/><br/><br/>
+<span style="font-weight:bold">MYSQL:</span><br/>
+SELECT s.title FROM song s
+WHERE NOT EXISTS( SELECT ps.song_id FROM playlist_song ps
+<br/>WHERE ps.song_id=s.song_id);
+playlist);<br/><br/>
+<table border="1">
+    <tr>
+        <th>Song Title</th>
+    </tr>
+    <% for(var i = 0; i <query.length;i++){%>
+    <tr>
+        <td ><%= query[i].title %></td>
+    </tr>
+    <% } %>
+</table>
+<br/><a href="/">Return to Homepage</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

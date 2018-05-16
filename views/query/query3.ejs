@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Subquery with IN</title>
+
+</head>
+<body>
+<h1>Subquery with IN</h1>
+This query returns users who have not yet created a playlist.
+<br/><br/><br/>
+<span style="font-weight:bold">MYSQL:</span><br/>
+SELECT
+user_name FROM user WHERE
+user_name NOT IN <br/>(SELECT DISTINCT
+user_name
+FROM
+playlist);<br/><br/>
+<table border="1">
+    <tr>
+        <th>User_Name</th>
+    </tr>
+    <% for(var i = 0; i <query.length;i++){%>
+    <tr>
+        <td ><%= query[i].user_name %></td>
+    </tr>
+    <% } %>
+</table>
+<br/><a href="/">Return to Homepage</a>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</body>
+
+</html>

@@ -10,7 +10,7 @@ var users = require('./routes/users');
 var user = require('./routes/user');
 var song = require('./routes/song');
 var playlist = require('./routes/playlist');
-
+var query = require('./routes/query');
 var app = express();
 
 // view engine setup
@@ -30,6 +30,7 @@ app.use('/user', user);
 app.use('/song', song);
 app.use('/song', user);
 app.use('/playlist', playlist);
+app.use('/query', query);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
